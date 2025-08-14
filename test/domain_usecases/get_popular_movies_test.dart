@@ -3,7 +3,7 @@ import 'package:mockito/mockito.dart';
 import 'package:movie_tracker/domain/entities/movie.dart';
 import 'package:movie_tracker/domain/usecases/get_popular_movies.dart';
 
-import 'get_movie_test.mocks.dart';
+import 'get_trending_movie_test.mocks.dart';
 
 void main() {
   late GetPopularMovies usecase;

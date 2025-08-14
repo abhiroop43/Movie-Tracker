@@ -1,11 +1,10 @@
 import 'dart:convert';
 
 class Movie {
-  int? id;
-  String? overview;
-  String? posterPath;
-  String? title;
-  Movie({this.id, this.overview, this.posterPath, this.title});
+  final int id;
+  final String overview;
+  final String posterPath;
+  final String title;
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -18,12 +17,10 @@ class Movie {
 
   factory Movie.fromMap(Map<String, dynamic> map) {
     return Movie(
-      id: map['id'] != null ? map['id'] as int : null,
-      overview: map['overview'] != null ? map['overview'] as String : null,
-      posterPath: map['posterPath'] != null
-          ? map['posterPath'] as String
-          : null,
-      title: map['title'] != null ? map['title'] as String : null,
+      id: map['id'] as int,
+      overview: map['overview'] as String,
+      posterPath: map['posterPath'] as String,
+      title: map['title'] as String,
     );
   }
 
@@ -31,6 +28,13 @@ class Movie {
 
   factory Movie.fromJson(String source) =>
       Movie.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  Movie({
+    required this.id,
+    required this.overview,
+    required this.posterPath,
+    required this.title,
+  });
 
   @override
   String toString() {
