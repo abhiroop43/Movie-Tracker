@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:movie_tracker/domain/entities/movie.dart';
@@ -33,13 +34,13 @@ void main() {
     // arrange
     when(
       mockMovieRepository.getPopularMovies(),
-    ).thenAnswer((_) async => pMovieList);
+    ).thenAnswer((_) async => Right(pMovieList));
 
     // act
     final result = await usecase();
 
     // assert
-    expect(result, pMovieList);
+    expect(result, Right(pMovieList));
     verify(mockMovieRepository.getPopularMovies());
     verifyNoMoreInteractions(mockMovieRepository);
   });

@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:movie_tracker/domain/entities/movie.dart';
@@ -35,13 +36,13 @@ void main() {
     // arrange
     when(
       mockMovieRepository.searchMovies(any),
-    ).thenAnswer((_) async => searchedMovies);
+    ).thenAnswer((_) async => Right(searchedMovies));
 
     // act
     final result = await usecase(query);
 
     // assert
-    expect(result, searchedMovies);
+    expect(result, Right(searchedMovies));
     verify(mockMovieRepository.searchMovies(query));
     verifyNoMoreInteractions(mockMovieRepository);
   });
