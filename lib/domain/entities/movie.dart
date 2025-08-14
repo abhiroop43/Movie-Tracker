@@ -10,7 +10,7 @@ class Movie {
     return <String, dynamic>{
       'id': id,
       'overview': overview,
-      'posterPath': posterPath,
+      'poster_path': posterPath,
       'title': title,
     };
   }
@@ -19,7 +19,7 @@ class Movie {
     return Movie(
       id: map['id'] as int,
       overview: map['overview'] as String,
-      posterPath: map['posterPath'] as String,
+      posterPath: map['poster_path'] as String,
       title: map['title'] as String,
     );
   }
